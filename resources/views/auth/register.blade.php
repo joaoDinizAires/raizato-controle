@@ -52,10 +52,16 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2">
                         Selecione o Tipo de Usuário
                     </label>
+                    {{--Verifica se ja existe um administrador--}}
+                    @if (!$adminExists > 0)
+
                     <div class="flex items-center">
                         <input required class="mr-2 leading-tight" type="radio" name="user_type" value="admin">
                         <label class="text-gray-700" for="admin">Administrador</label>
                     </div>
+
+                    @endif
+
                     <div class="flex items-center mt-2">
                         <input required class="mr-2 leading-tight" type="radio" name="user_type" value="manager">
                         <label class="text-gray-700" for="manager">Gerente</label>
@@ -70,7 +76,7 @@
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Registrar
                     </button>
-                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{{route('login')}}">
                         Voltar para Login
                     </a>
                 </div>

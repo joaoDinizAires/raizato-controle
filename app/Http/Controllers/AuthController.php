@@ -16,8 +16,8 @@ class AuthController extends Controller
     }
 
     public function create(){
-         //depois colocar verificação se ja existe admin
-        return view('auth.register');
+        $adminExists = User::where('user_type','admin')->count();
+        return view('auth.register',compact('adminExists'));
     }
     public function authenticate(Request $request){
 
@@ -49,5 +49,13 @@ class AuthController extends Controller
         $user = User::create($validatedData);
         Auth::login($user);
         return redirect('/');
+    }
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
