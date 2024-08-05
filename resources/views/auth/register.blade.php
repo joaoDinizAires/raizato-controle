@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Registro</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
     <div class="w-full max-w-md">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 class="text-center text-2xl font-bold mb-6">Registrar</h2>
-            <form method="POST" action="{{route('store')}}">
+            <form method="POST" action="{{ route('store') }}">
                 @csrf
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                        Nome de Usuário
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="full_name">
+                        Nome completo
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="username" type="text" placeholder="Seu nome de usuário">
-                    <x-error-message field="username" />
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="full_name" type="text" placeholder="Seu Nome completo">
+                    <x-error-message field="full_name" />
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                         Email
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" type="email" placeholder="Seu email">
-                    <x-error-message field="email" />              </div>
+                    <x-error-message field="email" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                        Celular
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="phone" id="phone" type="text" placeholder="(XX)XXXXX-XXXX">
+                    <x-error-message field="phone" />
+                </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                         Senha
@@ -33,7 +43,7 @@
                     <x-error-message field="password" />
                 </div>
                 <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="confirm-password">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password_confirmation">
                         Confirme a Senha
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password_confirmation" type="password" placeholder="Confirme sua senha">
@@ -70,5 +80,10 @@
             &copy;2024 Todos os direitos reservados.
         </p>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#phone').mask('(00)00000-0000');
+        });
+    </script>
 </body>
 </html>

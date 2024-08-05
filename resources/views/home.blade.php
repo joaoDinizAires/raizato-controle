@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    {{Auth::user()->username}}
+    {{Auth::user()->full_name}}
 </body>
 </html>

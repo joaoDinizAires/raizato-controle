@@ -18,8 +18,9 @@ class CreateUserRequest extends FormRequest
     {   
         //As senhas precisam ter no minimo uma letra, uma maiuscula e minuscula, um numero, e não pode ter vazado em algum data leak
         return [
-            'username' => ['required','string','unique:users','min:5','max:254'],
+            'full_name' => ['required','string','unique:users','min:5','max:254'],
             'email' => ['required','email','unique:users','max:254'],
+            'phone'=>['required','string','max:14'],
             'password'=> ['required','string','confirmed',Password::min(8)
                 ->letters()
                 ->mixedCase()
@@ -42,6 +43,9 @@ class CreateUserRequest extends FormRequest
             'email.email' => 'O email deve ser um endereço de email válido.',
             'email.unique' => 'Este email já está em uso.',
             'email.max' => 'O email deve ter no máximo 254 caracteres.',
+
+            'phone.required' => 'O telefone é obrigatório',
+            'phone.max' => 'O telefone precisa ser válido',
             
             'password.required' => 'A senha é obrigatória.',
             'password.string' => 'A senha deve ser uma string.',
