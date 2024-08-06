@@ -1,6 +1,7 @@
+@props(['suppliers'])
 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <h2 class="text-center text-2xl font-bold mb-6">Cadastro de Produto</h2>
-    <form method="POST" action="#">
+    <form method="POST" action="{{route('product.store')}}">
         @csrf
 
         <!-- Nome do Produto -->
@@ -27,7 +28,7 @@
                     Data de Validade
                 </label>
                 {{--minimo da data de validade até a data atual ou adiante--}}
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="expiration_date" type="date" min={{ Carbon\Carbon::now()->format('Y-m-d') }}>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="expiration_date" type="date">
                 <x-error-message field="expiration_date" />
             </div>
         </div>
@@ -66,9 +67,9 @@
                     Fornecedor
                 </label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="supplier_id">
-                    {{-- @foreach($suppliers as $supplier)
-                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
-                    @endforeach --}}
+                    @foreach($suppliers as $supplier)
+                    <option value="{{ $supplier->id }}"> {{ $supplier->name }} </option>
+                    @endforeach
                 </select>
                 <x-error-message field="supplier_id" />
             </div>

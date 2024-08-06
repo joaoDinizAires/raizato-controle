@@ -31,7 +31,7 @@
         <div class="flex items-center space-x-4">
             <a href="{{route('product.create')}}" class="text-gray-700 hover:text-gray-900">Cadastro de Produtos</a>
             <a href="{{route('supplier.create')}}" class="text-gray-700 hover:text-gray-900">Cadastro de Fornecedor</a>
-            <a href="#" class="text-gray-700 hover:text-gray-900">Fornecedores</a>
+            <a href="{{route('supplier.index')}}" class="text-gray-700 hover:text-gray-900">Fornecedores</a>
             <a href="#" class="text-gray-700 hover:text-gray-900">Usuários</a>
         </div>
 

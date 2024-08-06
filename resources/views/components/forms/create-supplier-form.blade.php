@@ -3,8 +3,6 @@
         <h2 class="text-center text-2xl font-bold mb-6">Cadastro de Fornecedor</h2>
         <form method="POST" action="{{ route('supplier.store') }}">
             @csrf
-    
-
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                     Nome do Fornecedor
