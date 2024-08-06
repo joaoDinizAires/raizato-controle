@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body class="bg-gray-100">
 
@@ -27,7 +29,8 @@
         
 
         <div class="flex items-center space-x-4">
-            <a href="#" class="text-gray-700 hover:text-gray-900">Cadastro de Produtos</a>
+            <a href="{{route('product.create')}}" class="text-gray-700 hover:text-gray-900">Cadastro de Produtos</a>
+            <a href="{{route('supplier.create')}}" class="text-gray-700 hover:text-gray-900">Cadastro de Fornecedor</a>
             <a href="#" class="text-gray-700 hover:text-gray-900">Fornecedores</a>
             <a href="#" class="text-gray-700 hover:text-gray-900">Usuários</a>
         </div>
