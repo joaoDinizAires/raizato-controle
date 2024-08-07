@@ -23,6 +23,13 @@
                             <a href="{{ route('supplier.edit', $supplier->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 Editar
                             </a>
+                            <form action="{{ route('supplier.delete', $supplier->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Excluir
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SupplierController extends Controller
 {
     public function create(){
-        return view("create-supplier");
+        return view("supplier.create-supplier");
     }
     public function store(CreateSupplierRequest $request){
         $validatedData = $request->validated();
@@ -18,13 +18,13 @@ class SupplierController extends Controller
     }
     public function show(){
         $suppliers = Supplier::orderBy("name","asc")->get();
-        return view("show-suppliers", compact("suppliers"));
+        return view("supplier.show-suppliers", compact("suppliers"));
     }
     public function edit($id)
     {
         $supplier = Supplier::findOrFail($id);
 
-        return view('edit-supplier', compact('supplier'));
+        return view('supplier.edit-supplier', compact('supplier'));
     }
     public function update(Request $request, $id)
     {
@@ -39,6 +39,11 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($id);
         $supplier->update($request->all());
 
+        return redirect()->route('supplier.index');
+    }
+    public function destroy($id){
+        $supplier = Supplier::findOrFail($id);
+        $supplier->delete();
         return redirect()->route('supplier.index');
     }
 }

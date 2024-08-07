@@ -22,22 +22,20 @@
             </form>
         </div>
         
-
-        <div class="flex-1 mx-4">
-            <input type="text" placeholder="Pesquisar..." class="w-full py-2 px-4 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
+        <form method="POST" action="{{ route('product.search') }}" class="flex-1 mx-4">
+            @csrf
+            <input type="text" placeholder="Pesquisar..." name="search" class="w-full py-2 px-4 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </form>
         
-
         <div class="flex items-center space-x-4">
-            <a href="{{route('product.create')}}" class="text-gray-700 hover:text-gray-900">Cadastro de Produtos</a>
-            <a href="{{route('supplier.create')}}" class="text-gray-700 hover:text-gray-900">Cadastro de Fornecedor</a>
-            <a href="{{route('supplier.index')}}" class="text-gray-700 hover:text-gray-900">Fornecedores</a>
-            <a href="#" class="text-gray-700 hover:text-gray-900">Usuários</a>
+            <a href="{{ route('home') }}" class="text-gray-700 hover:text-gray-900">Inicio</a>
+            <a href="{{ route('product.create') }}" class="text-gray-700 hover:text-gray-900">Cadastro de Produtos</a>
+            <a href="{{ route('supplier.create') }}" class="text-gray-700 hover:text-gray-900">Cadastro de Fornecedor</a>
+            <a href="{{ route('supplier.index') }}" class="text-gray-700 hover:text-gray-900">Fornecedores</a>
+            <a href="{{route('user.show')}}" class="text-gray-700 hover:text-gray-900">Usuários</a>
         </div>
-
     </div>
 </nav>
-
 
 <div class="container mx-auto mt-8">
     {{$slot}}

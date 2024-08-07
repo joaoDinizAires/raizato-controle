@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th class="py-2 px-4 border-b">Nome do Produto</th>
-                    <th class="py-2 px-4 border-b">Quantidade</th>
+                    <th class="py-2 px-4 border-b">Estoque</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +25,7 @@
             <thead>
                 <tr>
                     <th class="py-2 px-4 border-b">Nome do Produto</th>
+                    <th class="py-2 px-4 border-b">Estoque</th>
                     <th class="py-2 px-4 border-b">Data de Validade</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                 @foreach($nearExpiryProducts as $product)
                     <tr>
                         <td class="py-2 px-4 border-b">{{ $product->name }}</td>
+                        <td class="py-2 px-4 border-b">{{ $product->quantity }}</td>
                         <td class="py-2 px-4 border-b">{{ \Carbon\Carbon::parse($product->expiration_date)->format('d/m/Y') }}</td>
                     </tr>
                 @endforeach
